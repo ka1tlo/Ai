@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08090d"><title>NEXORA AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="logo">N</span><span>NEXORA<span class="muted"> AI</span></span></a>
+    <button class="icon-btn" id="settingsBtn" aria-label="Настройки">⚙</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> YOUR CREATIVE AI STUDIO</div>
+      <h1>создавай.<br><span>отвечай. удивляй.</span></h1>
+      <p>Три инструмента. Один умный рабочий процесс.</p>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="reply">AI Reply</button>
+      <button class="tab" data-tab="slides">AI Slides</button>
+      <button class="tab" data-tab="edit">AI Edit</button>
+    </nav>
+
+    <section class="panel active" id="reply">
+      <div class="panel-head"><div><div class="eyebrow">01 / SOCIAL INTELLIGENCE</div><h2>ответ на комментарий</h2></div><span class="tag">REPLY</span></div>
+      <label for="comment">вставь комментарий</label>
+      <textarea id="comment" rows="5" placeholder="например: ты вообще ничего не понимаешь в этой теме..."></textarea>
+      <label>стиль ответа</label>
+      <div class="chips" id="tones">
+        <button class="chip selected" data-tone="уверенно и спокойно">уверенно</button>
+        <button class="chip" data-tone="иронично, но без оскорблений">с иронией</button>
+        <button class="chip" data-tone="коротко и жёстко, но уважительно">жёстко</button>
+        <button class="chip" data-tone="умно и аргументированно">аргументированно</button>
+      </div>
+      <button class="primary" id="replyBtn">сгенерировать ответ <span>↗</span></button>
+      <div class="output hidden" id="replyOutput"><div class="output-top"><span>ТВОЙ ОТВЕТ</span><button class="copy" data-copy="replyResult">копировать</button></div><p id="replyResult"></p></div>
+    </section>
+
+    <section class="panel" id="slides">
+      <div class="panel-head"><div><div class="eyebrow">02 / CONTENT GENERATOR</div><h2>создание слайдов</h2></div><span class="tag">SLIDES</span></div>
+      <label for="topic">тема публикации</label>
+      <input id="topic" placeholder="например: тренировки до отказа">
+      <div class="two">
+        <div><label for="count">количество</label><select id="count"><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option></select></div>
+        <div><label for="category">категория</label><select id="category"><option>спорт</option><option>образование</option><option>люкс</option><option>технологии</option><option>психология</option><option>история</option></select></div>
+      </div>
+      <button class="primary" id="slidesBtn">создать структуру слайдов <span>↗</span></button>
+      <div class="output hidden" id="slidesOutput"><div class="output-top"><span>РЕЗУЛЬТАТ</span><button class="copy" id="copySlides">копировать всё</button></div><div id="slidesResult"></div></div>
+    </section>
+
+    <section class="panel" id="edit">
+      <div class="panel-head"><div><div class="eyebrow">03 / VIDEO WORKFLOW</div><h2>AI Edit</h2></div><span class="tag">EDIT</span></div>
+      <p class="description">Загрузи референс и свои материалы, чтобы подготовить монтажный бриф.</p>
+      <label>референсное видео</label><input type="file" id="reference" accept="video/*">
+      <label>твои фото и видео</label><input type="file" id="assets" accept="image/*,video/*" multiple>
+      <div class="notice">В этой веб-версии загрузка пока служит для подготовки материалов. Автоматический монтаж и экспорт видео ещё не подключены.</div>
+      <button class="primary" id="editBtn">проверить файлы <span>↗</span></button>
+      <div class="output hidden" id="editOutput"></div>
+    </section>
+
+    <footer><span>NEXORA AI</span><span>CREATIVE TOOLS · WEB ALPHA</span></footer>
+  </main>
+
+  <div class="modal hidden" id="settings">
+    <div class="modal-card"><div class="modal-head"><h3>настройки API</h3><button id="closeSettings" class="icon-btn">✕</button></div>
+      <p class="description">Вставь собственный API-ключ. Он сохранится только в этом браузере.</p>
+      <label for="apiKey">API key</label><input id="apiKey" type="password" placeholder="sk-...">
+      <div class="notice">Не вставляй ключ на чужих устройствах. Для публичного сайта безопаснее настроить серверный ключ через переменную OPENAI_API_KEY.</div>
+      <button class="primary" id="saveKey">сохранить настройки</button>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body></html>

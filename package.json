@@ -1,0 +1,8 @@
+{
+  "name": "nexora-ai-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXORA AI mobile-first web app",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.21.2" }
+}
